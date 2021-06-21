@@ -95,7 +95,7 @@ class App extends React.Component {
     if(id === 'drop') this.drop()
     else if (id === 'checkedAll') this.checkedAll()
     else{
-      fetch('https://git.heroku.com/enigmatic-mesa-83961.git/itemlist', {
+      fetch('https://enigmatic-mesa-83961.herokuapp.com/itemlist', {
         method: 'post',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({

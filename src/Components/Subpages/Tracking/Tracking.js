@@ -9,7 +9,7 @@ export const Tracking = ({ username }) => {
 
     React.useEffect(() => {
         console.log(username)
-        fetch('https://git.heroku.com/enigmatic-mesa-83961.git/track', {
+        fetch('https://enigmatic-mesa-83961.herokuapp.com/track', {
             method: 'post',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
