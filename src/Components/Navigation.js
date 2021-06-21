@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const Navigation = ({handleChange, username, page}) => {
+export const Navigation = ({ handleChange }) => {
     return(
         <div className="navbar mb-2 shadow-lg bg-neutral text-neutral-content rounded-box">
             <div className="flex-none px-2 mx-2">

@@ -1,6 +1,6 @@
 import React from 'react'
 
-class Login extends React.Component {
+class Register extends React.Component {
     constructor(props){
         super(props)
         this.state = {
@@ -17,8 +17,8 @@ class Login extends React.Component {
         this.setState({password: e.target.value})
     }
 
-    onSubmitSignIn = () => {
-        fetch('https://git.heroku.com/enigmatic-mesa-83961.git/signin', {
+    onSubmitRegister = () => {
+        fetch('https://git.heroku.com/enigmatic-mesa-83961.git/register', {
             method: 'post',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
@@ -26,20 +26,15 @@ class Login extends React.Component {
                 password: this.state.password
             })
         })
-        .then(response => response.json())
+        .then(res => res.json())
         .then(data => {
-            if(data === 'Wrong username or password') 
-                console.log(data)
-            else if(data) {
-                this.props.handleSubmit()
-                this.props.loadUser(data)
-            }
+            const e = {target: {name: 'register', value: ''}}
+            this.props.handleChange(e)
         })
-        
+
     }
 
     render(){
-        const { handleChange } = this.props
         return(
             <div className="hero min-h-screen bg-base-200 text-white">
                 <div className="flex-col justify-center hero-content">
@@ -48,10 +43,10 @@ class Login extends React.Component {
                             Welcome to Shopping Site
                             </h1> 
                         <p className="mb-5">
-                                Please login first
+                                Please enter the following information
                             </p>
                     </div> 
-                    <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+                    <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-300">
                         <div className="card-body">
                         <div className="form-control">
                             <label className="label">
@@ -65,19 +60,20 @@ class Login extends React.Component {
                             </label> 
                             <input name='password' type="text" placeholder="password" className="input input-bordered" onChange={this.onPasswordChange} /> 
                             <label className="label">
-                            <button name='register' value={true} className="label-text-alt" onClick={handleChange}>new user? click here to register</button>
+                            <button name='register'value='' className="label-text-alt" onClick={this.props.handleChange}>I have account. click to take me back</button>
                             </label>
                         </div> 
                         <div className="form-control mt-6">
-                            <input type="button" value="Login" className="btn btn-primary" onClick={this.onSubmitSignIn} />
+                            <input type="button" value="Register" className="btn btn-secondary" onClick={this.onSubmitRegister} />
                         </div>
                         </div>
                     </div>
                 </div>
             </div>
-    
         )
     }
+
+
 }
 
-export default Login
+export default Register

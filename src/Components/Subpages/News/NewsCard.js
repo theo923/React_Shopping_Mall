@@ -11,9 +11,9 @@ export const NewsCard = ({ news, handleSCChange }) => {
                     </figure> 
                     <div className="card-body max-h-full max-w-full">
                         <h2 className="card-title">{newsHeading}</h2> 
-                        <p>{newsContent}</p> 
+                        <p className=' h-32'>{newsContent}</p> 
                         <div className='justify-end space-x-2 card-actions'>
-                                <button name={newsItem} id='add' onClick={handleSCChange} className="btn glass rounded-full" >Add to Shopping Cart</button>
+                                <button name={newsItem} id='add' onClick={handleSCChange} className="btn glass rounded-full" >Add to Cart</button>
                         </div>
                     </div>
                 </div>

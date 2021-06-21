@@ -2,10 +2,24 @@ import React from 'react'
 import { TrackingCard } from './TrackingCard'
 import { DetailedTracking } from './DetailedTracking'
 
-export const Tracking = ({ username, userList }) => {
+export const Tracking = ({ username }) => {
     const [orderView, setOrderView] = React.useState(false)
     const [orderNum, setOrderNum] = React.useState('0')
-    const selectedList = userList.filter(user => username === user.username)[0].order.slice(0).reverse()
+    const [orderList, setOrderList] = React.useState([])
+
+    React.useEffect(() => {
+        console.log(username)
+        fetch('https://git.heroku.com/enigmatic-mesa-83961.git/track', {
+            method: 'post',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+                username: username
+            })
+        })
+        .then(res => res.json())
+        .then(data => setOrderList(data))
+    }, [username])
+    const selectedList = orderList.slice(0).reverse()
 
 
     return(
@@ -17,7 +31,7 @@ export const Tracking = ({ username, userList }) => {
                 </div>
                 :
                 <div>
-                { selectedList.map((order, idx, arr) => (arr.length - idx - 1 === orderNum) ? <DetailedTracking key={idx} idx={arr.length - idx - 1} order={order} username={username} /> : null)}
+                { selectedList.map((order, idx, arr) => (arr.length - idx - 1 === orderNum) ? <DetailedTracking key={idx} idx={arr.length - idx - 1} order={order} itemprice attemptquantity itemdescription username={username} /> : null)}
                 </div>
                 }
             </div>

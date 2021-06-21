@@ -1,18 +1,17 @@
 import React from 'react'
 
-export const CheckoutItem = ({ cartItem }) => {
-    const { itemPrice, attemptQuantity, itemDescription } = cartItem
+export const CheckoutItem = ({ itemprice, attemptquantity, itemdescription }) => {
     return(
                     <tbody>
                     <tr>
                         <th>
-                            {attemptQuantity}
+                            {attemptquantity}
                         </th> 
                         <td>
-                            {itemDescription}
+                            {itemdescription}
                         </td> 
                         <th>
-                            {`$${attemptQuantity * itemPrice}`}
+                            {`$${attemptquantity * itemprice}`}
                         </th>
                     </tr>
                     </tbody> 

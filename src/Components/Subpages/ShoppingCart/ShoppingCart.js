@@ -6,7 +6,7 @@ import { ShoppingCartNavigation } from './ShoppingCartNavigation';
 
 export const ShoppingCart = ({ userCart, handleSCChange, handleOrder, ordered, username, handleChange, handleDeliveryInfo, deliveryInfo }) => {
 
-    const reducer = (accumulator, currentObject) => accumulator + (currentObject.attemptQuantity * currentObject.itemPrice);
+    const reducer = (accumulator, currentObject) => accumulator + (currentObject.attemptquantity * currentObject.itemprice);
     const [checkout, setCheckout] = React.useState(false);
 
     return(

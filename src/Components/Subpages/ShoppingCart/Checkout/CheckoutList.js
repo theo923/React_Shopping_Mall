@@ -3,7 +3,8 @@ import { CheckoutItem } from './CheckoutItem'
 import { CheckoutInfo } from './CheckoutInfo'
 import { SuccessPage } from './SuccessPage'
 
-export const CheckoutList = ({ userCart, reducer, handleOrder, ordered, username, handleChange, setCheckout, deliveryInfo, SwitchPages }) => {
+export const CheckoutList = ({ userCart, reducer, handleOrder, ordered, username, handleChange, setCheckout, deliveryInfo }) => {
+    console.log(userCart)
     return(
         <div>
             { !ordered ?
@@ -16,7 +17,7 @@ export const CheckoutList = ({ userCart, reducer, handleOrder, ordered, username
                             <th>Price</th>
                         </tr>
                     </thead> 
-                {userCart.map((cartItem, idx) => <CheckoutItem key={idx} cartItem={cartItem} />)}
+                {userCart.map((cartItem, idx) => <CheckoutItem key={idx} itemprice={cartItem.itemprice} attemptquantity={cartItem.attemptquantity} itemdescription={cartItem.itemdescription} />)}
                     <tbody>
                         <tr>
                             <th></th> 
@@ -27,11 +28,11 @@ export const CheckoutList = ({ userCart, reducer, handleOrder, ordered, username
                 </table>
 
                 <table className="table w-full">
-                    {deliveryInfo.map((eachInfo, idx) => username === eachInfo.username ? <CheckoutInfo key={idx} eachInfo={eachInfo} /> : false)}
+                    {<CheckoutInfo eachInfo={deliveryInfo} />}
                 </table>
                 
                 <div className="justify-end space-x-2 card-actions">
-                            <button id='drop' onClick={handleOrder} className="btn btn-success" >Order</button>
+                            <button name='drop' id='drop' onClick={handleOrder} className="btn btn-success" >Order</button>
                 </div>
                 
             </div>

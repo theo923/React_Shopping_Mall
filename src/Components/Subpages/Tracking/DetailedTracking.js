@@ -3,6 +3,7 @@ import { CheckoutInfo } from '../ShoppingCart/Checkout/CheckoutInfo'
 import { CheckoutItem } from '../ShoppingCart/Checkout/CheckoutItem'
 
 export const DetailedTracking = ({ order, idx }) => {
+    const reducer = (accumulator, currentObject) => accumulator + (currentObject.quan * currentObject.price);
     const orderedItem = order[0]
     const orderedDeliveryInfo = order[1]
     return(
@@ -11,12 +12,12 @@ export const DetailedTracking = ({ order, idx }) => {
                 <div className="container glass text-neutral-content mb-6">
                     <figure className="px-6 relative">
                         <div style={{width:'266.67px', height:'150px'}} className="float-right">
-                            <img src={orderedItem[0].itemImage} alt={orderedItem[0].itemDescription} />
+                            <img src={orderedItem[0].url} alt={orderedItem[0].name} />
                         </div>
                     </figure> 
                     <div className="card-body max-h-full max-w-full relative">
                         <h2 className="card-title">Order #{idx}</h2> 
-                        <div>{orderedItem.map(item => <div className='italic'>{item.itemDescription} ${item.attemptQuantity * item.itemPrice} @ {item.attemptQuantity} </div>)}</div> 
+                        <div>{orderedItem.map((item, idx) => <div key={idx} className='italic'>{item.name} ${item.quan * item.price} @ {item.quan} </div>)}</div> 
                     </div>
                 </div>
             </div>
@@ -28,18 +29,18 @@ export const DetailedTracking = ({ order, idx }) => {
                             <th>Price</th>
                         </tr>
                     </thead> 
-                {orderedItem.map((cartItem, idx) => <CheckoutItem key={idx} cartItem={cartItem} />)}
+                {orderedItem.map((cartItem, idx) => <CheckoutItem key={idx} itemprice={cartItem.price} attemptquantity={cartItem.quan} itemdescription={cartItem.name} />)}
                     <tbody>
                         <tr>
                             <th></th> 
                             <th>Price to Pay</th> 
-                            <th>123</th>
+                            <th>{orderedItem.reduce(reducer, 0)}</th>
                         </tr>
                     </tbody> 
             </table>
 
             <table className="table w-full">
-                <CheckoutInfo key={idx} eachInfo={orderedDeliveryInfo} />
+                <CheckoutInfo key={idx} eachInfo={orderedDeliveryInfo[0]} />
             </table>
         </div>
 

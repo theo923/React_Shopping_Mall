@@ -10,7 +10,7 @@ export const NewsList = [
         newsImage: 'https://www.nvidia.com/content/dam/en-zz/Solutions/geforce/ampere/rtx-3080/images/design/geforce-rtx-3080-4-960.jpg',
         newsHeading: 'RTX 3080 restock!!!',
         newsContent: 'get your display card asap!!!',
-        newsItem: '3080',
+        newsItem: 'RTX 3080',
         newsQuantity: 1,
     },
     {
