@@ -69,7 +69,7 @@ class App extends React.Component {
 
   handleOrder = () => {
     const { deliveryInfo, userCart, user } = this.state
-    fetch('https://git.heroku.com/enigmatic-mesa-83961.git/order', {
+    fetch('https://enigmatic-mesa-83961.herokuapp.com/order', {
       method: 'post',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({
