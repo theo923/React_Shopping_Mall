@@ -44,6 +44,10 @@ class App extends React.Component {
         username: data.username,
         joined: data.joined,
         orders: data.orders
+      },
+      deliveryInfo: {
+        ...initialState.deliveryInfo,
+        username: data.username
       }
     })
   }
@@ -51,7 +55,7 @@ class App extends React.Component {
   handleChange = e => {
     const { name, value } = e.target
     console.log(name, value)
-    name === 're-order' ? this.setState({ordered: false}) : this.setState({[name]: value})
+    name === 'logout' ? this.setState(initialState) : name === 're-order' ? this.setState({ordered: false}) : this.setState({[name]: value})
   }
   
   handleSubmit = () => {
@@ -118,10 +122,6 @@ class App extends React.Component {
       }
       })
     }
-    
-    
-
-
   } 
 
   add = (item) => {

@@ -2,8 +2,24 @@ import React from 'react'
 import { ShoppingItem } from './ShoppingItem'
 import { DeliveryForm } from './DeliveryForm'
 
-export const CartContent = ({ reducer, setCheckout, handleSCChange, userCart, handleDeliveryInfo }) => {
+export const CartContent = ({ reducer, setCheckout, handleSCChange, userCart, handleDeliveryInfo, deliveryInfo }) => {
+    const [valid, setValid] = React.useState(false)
+
+    // const validDeliveryInfo = deliveryInfo => {
+    //     for (const [info, value] of Object.entries(deliveryInfo)){
+    //         if(value === '' || info === '') setValid(true)
+    //     }
+    // }
+
+    React.useEffect(() => {
+        for (const [info, value] of Object.entries(deliveryInfo)){
+            if(value === '' || info === '') return setValid(true)
+        }
+        return setValid(false)
+    }, [deliveryInfo])
+
     return(
+        
         <div>        
             <div>
                 <div className="overflow-x-auto ">
@@ -47,11 +63,11 @@ export const CartContent = ({ reducer, setCheckout, handleSCChange, userCart, ha
                     </table>
                 </div>
 
-                <DeliveryForm handleDeliveryInfo={handleDeliveryInfo} />
+                <DeliveryForm deliveryInfo={deliveryInfo} handleDeliveryInfo={handleDeliveryInfo} />
 
                 <div className="justify-end space-x-2 card-actions gap-4">
                         <button id='drop' onClick={handleSCChange} className="btn btn-error" >Delete</button>
-                        <button id='drop' onClick={() => (userCart.length > 0)? setCheckout(true) : null} className="btn btn-success" >Checkout</button>
+                        <button id='drop' disabled={(Boolean(userCart.length < 1) || valid)} onClick={() => setCheckout(true)} className="btn btn-success" >Checkout</button>
                 </div>
 
             </div>         

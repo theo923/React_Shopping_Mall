@@ -4,21 +4,21 @@ import { ShoppingCart } from './Subpages/ShoppingCart/ShoppingCart'
 import { News } from './Subpages/News/News'
 import { Tracking } from './Subpages/Tracking/Tracking'
 
-export const Content = ({handleChange, username, page, handleSCChange, userCart, handleOrder, ordered, handleDeliveryInfo, deliveryInfo}) => {
-
+export const Content = (props) => {
+    props = props.props
     const SwitchPages = page => {
         switch(page) {
             case 'contact':         return <Contact />
-            case 'shoppingCart':    return <ShoppingCart userCart={userCart} handleSCChange={handleSCChange} handleOrder={handleOrder} handleChange={handleChange} ordered={ordered} username={username} handleDeliveryInfo={handleDeliveryInfo} deliveryInfo={deliveryInfo} />
-            case 'news':            return <News handleSCChange={handleSCChange} />
-            case 'tracking':        return <Tracking username={username} />
+            case 'shoppingCart':    return <ShoppingCart props={props}/>
+            case 'news':            return <News handleSCChange={props.handleSCChange} />
+            case 'tracking':        return <Tracking username={props.username} />
             default: console.log('SwitchPages: Something went wrong!!!')
         }
     }
 
     return(
             <div className='m-12'>
-                {SwitchPages(page)}
+                {SwitchPages(props.page)}
             </div>
     )
 }
