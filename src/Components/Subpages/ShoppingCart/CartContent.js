@@ -1,17 +1,11 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { ShoppingItem } from './ShoppingItem'
 import { DeliveryForm } from './DeliveryForm'
 
 export const CartContent = ({ reducer, setCheckout, handleSCChange, userCart, handleDeliveryInfo, deliveryInfo }) => {
-    const [valid, setValid] = React.useState(false)
+    const [valid, setValid] = useState(false)
 
-    // const validDeliveryInfo = deliveryInfo => {
-    //     for (const [info, value] of Object.entries(deliveryInfo)){
-    //         if(value === '' || info === '') setValid(true)
-    //     }
-    // }
-
-    React.useEffect(() => {
+    useEffect(() => {
         for (const [info, value] of Object.entries(deliveryInfo)){
             if(value === '' || info === '') return setValid(true)
         }

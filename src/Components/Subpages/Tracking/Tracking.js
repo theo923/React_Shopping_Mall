@@ -1,13 +1,13 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { TrackingCard } from './TrackingCard'
 import { DetailedTracking } from './DetailedTracking'
 
-export const Tracking = ({ username }) => {
-    const [orderView, setOrderView] = React.useState(false)
-    const [orderNum, setOrderNum] = React.useState('0')
-    const [orderList, setOrderList] = React.useState([])
+const Tracking = ({ username }) => {
+    const [orderView, setOrderView] = useState(false)
+    const [orderNum, setOrderNum] = useState('0')
+    const [orderList, setOrderList] = useState([])
 
-    React.useEffect(() => {
+    useEffect(() => {
         console.log(username)
         fetch('https://enigmatic-mesa-83961.herokuapp.com/track', {
             method: 'post',
@@ -37,3 +37,5 @@ export const Tracking = ({ username }) => {
             </div>
     )
 }
+
+export default Tracking

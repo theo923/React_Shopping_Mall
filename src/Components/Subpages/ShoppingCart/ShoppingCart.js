@@ -1,12 +1,12 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { CheckoutList } from './Checkout/CheckoutList';
 import { CartContent } from './CartContent';
 import { SuccessPage } from './Checkout/SuccessPage';
 import { ShoppingCartNavigation } from './ShoppingCartNavigation';
 
-export const ShoppingCart = (props) => {
+const ShoppingCart = (props) => {
     const reducer = (accumulator, currentObject) => accumulator + (currentObject.attemptquantity * currentObject.itemprice);
-    const [checkout, setCheckout] = React.useState(false);
+    const [checkout, setCheckout] = useState(false);
     const { userCart, handleSCChange, handleOrder, ordered, username, handleChange, handleDeliveryInfo, deliveryInfo } = props.props
 
     return(
@@ -38,3 +38,5 @@ export const ShoppingCart = (props) => {
     )
 
 }
+
+export default ShoppingCart

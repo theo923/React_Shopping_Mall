@@ -1,13 +1,11 @@
-import React from 'react'
+import React, { Component } from 'react'
 import Login from './Login/Login'
 import Register from './Login/Register'
 import { UserUI } from './Components/UserUI'
-import { ItemList } from './Database/ItemList'
 
 const initialState = {
   valid: false,
   page: 'news',
-  itemList: ItemList,
   userCart: [],
   ordered: false,
   register: '',
@@ -31,7 +29,7 @@ const initialState = {
   }
 }
 
-class App extends React.Component {
+class App extends Component {
   constructor(props){
     super(props)
     this.state = initialState
@@ -66,7 +64,6 @@ class App extends React.Component {
     const { name, value  } = info.target
     const { deliveryInfo } = this.state
     const obj = {...deliveryInfo, [name]: value}
-    console.log('handleDeliveryInfo', obj)
     this.setState({ deliveryInfo: obj })
 
   }

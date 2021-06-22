@@ -1,11 +1,10 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { NewsCard } from './NewsCard'
 
-export const News = ({handleSCChange}) => {
-    const [newslist, setNewsList] = React.useState([])
-    console.log(newslist)
+const News = ({handleSCChange}) => {
+    const [newslist, setNewsList] = useState([])
 
-    React.useEffect(() => {
+    useEffect(() => {
         fetch('https://enigmatic-mesa-83961.herokuapp.com/newslist', {
             method: 'post',
             headers: {'Content-Type': 'applicaiton/json'},
@@ -23,3 +22,5 @@ export const News = ({handleSCChange}) => {
             </div>
     )
 }
+
+export default News;

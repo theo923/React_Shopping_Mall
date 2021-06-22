@@ -4,7 +4,6 @@ import { CheckoutInfo } from './CheckoutInfo'
 import { SuccessPage } from './SuccessPage'
 
 export const CheckoutList = ({ userCart, reducer, handleOrder, ordered, username, handleChange, setCheckout, deliveryInfo }) => {
-    console.log(userCart)
     return(
         <div>
             { !ordered ?

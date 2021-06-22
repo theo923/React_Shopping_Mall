@@ -2,5 +2,7 @@
 
 Website for Online Shopping#
 
-user for test: 		123 
-password for test: 	123
+username for test: 	234
+password for test: 	234
+
+You can register your own username & password now
