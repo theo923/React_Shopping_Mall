@@ -2,5 +2,5 @@
 
 Website for Online Shopping#
 
-user for test: 		123 
-password for test: 	123
+user for test: 		234 
+password for test: 	234
