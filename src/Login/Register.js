@@ -49,13 +49,13 @@ class Register extends React.Component {
                     <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-300">
                         <div className="card-body">
                         <div className="form-control">
-                            <label className="label">
+                            <label htmlFor='username' className="label">
                             <span className="label-text">Username</span>
                             </label> 
                             <input name='username' type="text" placeholder="username" className="input input-bordered" onChange={this.onUsernameChange} />
                         </div> 
                         <div className="form-control">
-                            <label className="label">
+                            <label htmlFor='password' className="label">
                             <span className="label-text">Password</span>
                             </label> 
                             <input name='password' type="text" placeholder="password" className="input input-bordered" onChange={this.onPasswordChange} /> 

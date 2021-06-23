@@ -12,62 +12,62 @@ export const DeliveryForm = ({ handleDeliveryInfo, deliveryInfo }) => {
             </div>
            <div className="flex flex-wrap gap-10 mt-5">
                <div>
-                    <label className="label">
+                    <label htmlFor='firstName' className="label">
                         <span className="label-text">First Name:</span>
                     </label> 
-                    <input name='firstName' value={firstName} onChange={e => handleDeliveryInfo(e)} type="text" placeholder="First Name" className="input input-bordered" />
+                    <input id='firstName' name='firstName' value={firstName} onChange={e => handleDeliveryInfo(e)} type="text" placeholder="First Name" className="input input-bordered" />
                </div>
 
                <div>
-                    <label className="label">
+                    <label htmlFor='lastName' className="label">
                         <span className="label-text">Last Name:</span>
                     </label> 
-                    <input name='lastName' value={lastName} onChange={e => handleDeliveryInfo(e)} type="text" placeholder="Last Name" className="input input-bordered" />
+                    <input id='lastName' name='lastName' value={lastName} onChange={e => handleDeliveryInfo(e)} type="text" placeholder="Last Name" className="input input-bordered" />
                 </div>
             </div>
 
             <div className="flex flex-wrap gap-10 mt-5">
                 <div>
-                    <label className="label">
+                    <label htmlFor='phoneNumber' className="label">
                         <span className="label-text">Phone Number</span>
                     </label> 
-                    <input name='phoneNumber' value={phoneNumber} onChange={e => handleDeliveryInfo(e)} type="text" placeholder="Phone Number" className="input input-bordered" />
+                    <input id='phoneNumber' name='phoneNumber' value={phoneNumber} onChange={e => handleDeliveryInfo(e)} type="text" placeholder="Phone Number" className="input input-bordered" />
                 </div>
                 <div>
-                    <label className="label">
+                    <label htmlFor='postCode' className="label">
                         <span className="label-text">Post Code</span>
                     </label> 
-                    <input name='postCode' value={postCode} onChange={e => handleDeliveryInfo(e)} type="text" placeholder="Post Code" className="input input-bordered" />
+                    <input id='postCode' name='postCode' value={postCode} onChange={e => handleDeliveryInfo(e)} type="text" placeholder="Post Code" className="input input-bordered" />
                 </div>
             </div>
 
             <div className="flex flex-wrap gap-10 mt-5">
                 <div>
-                    <label className="label">
+                    <label htmlFor='Address1' className="label">
                         <span className="label-text">Address line 1 (or Company name)</span>
                     </label> 
-                    <input name='Address1' value={Address1} onChange={e => handleDeliveryInfo(e)} type="text" placeholder="Address line 1 (or Company name)" className="input input-bordered" />
+                    <input id='Address1' name='Address1' value={Address1} onChange={e => handleDeliveryInfo(e)} type="text" placeholder="Address line 1 (or Company name)" className="input input-bordered" />
                 </div>
                 <div>
-                    <label className="label">
+                    <label htmlFor='Address2' className="label">
                         <span className="label-text">Address line 2 (optional)</span>
                     </label> 
-                    <input name='Address2' value={Address2} onChange={e => handleDeliveryInfo(e)} type="text" placeholder="Address line 2 (optional)" className="input input-bordered" />
+                    <input id='Address2' name='Address2' value={Address2} onChange={e => handleDeliveryInfo(e)} type="text" placeholder="Address line 2 (optional)" className="input input-bordered" />
                 </div>
             </div>
             
             <div className="flex flex-wrap gap-10 mt-5">
                 <div>
-                    <label className="label">
+                    <label htmlFor='townCity' className="label">
                         <span className="label-text">Town/City</span>
                     </label> 
-                    <input name='townCity' value={townCity} onChange={e => handleDeliveryInfo(e)} type="text" placeholder="Town/City" className="input input-bordered" />
+                    <input id='townCity' name='townCity' value={townCity} onChange={e => handleDeliveryInfo(e)} type="text" placeholder="Town/City" className="input input-bordered" />
                 </div>
                 <div>
-                    <label className="label">
+                    <label htmlFor='county' className="label">
                         <span className="label-text">County</span>
                     </label> 
-                    <input name='county' value={county} onChange={e => handleDeliveryInfo(e)} type="text" placeholder="County" className="input input-bordered" />
+                    <input id='county' name='county' value={county} onChange={e => handleDeliveryInfo(e)} type="text" placeholder="County" className="input input-bordered" />
                 </div>
             </div>
         </div>
