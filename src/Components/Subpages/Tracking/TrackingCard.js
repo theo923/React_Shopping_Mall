@@ -1,26 +1,28 @@
-import React from 'react'
-
-export const TrackingCard = ({ order, idx, setOrderView, setOrderNum }) => {
-    const orderedItem = order[0]
-
-    return(
-            <div >
-                <div>
-                    <div className="card glass lg:card-side text-neutral-content mb-6">
-                        <figure className="p-6 lg:py-0 mb-8">
-                            <div style={{width:'266.67px', height:'150px'}}>
-                                <img src={orderedItem[0].url} alt={orderedItem[0].name}/>
-                            </div>
-                        </figure> 
-                        <div className="card-body max-h-full max-w-full">
-                            <h2 className="card-title">Order #{idx}</h2> 
-                            <div>{orderedItem.map((item, idx) => <div key={idx} className='italic'>{item.name} ${item.quan * item.price} @ {item.quan} </div>)}</div> 
-                            <div className='justify-end space-x-2 card-actions'>
-                                    <button onClick={() => { setOrderView(true); setOrderNum(idx) }} className="btn glass rounded-full" >Click for detailed info</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-    )
-}
+"use strict";
+exports.__esModule = true;
+exports.TrackingCard = void 0;
+var React = require("react");
+var TrackingCard = function (_a) {
+    var order = _a.order, idx = _a.idx, handleViewDetail = _a.handleViewDetail;
+    var orderedItem = order[0];
+    return (React.createElement("div", null,
+        React.createElement("div", null,
+            React.createElement("div", { className: "card glass lg:card-side text-neutral-content mb-6" },
+                React.createElement("figure", { className: "p-6 lg:py-0 mb-8" },
+                    React.createElement("div", { style: { width: '266.67px', height: '150px' } },
+                        React.createElement("img", { src: orderedItem[0].url, alt: orderedItem[0].name }))),
+                React.createElement("div", { className: "card-body max-h-full max-w-full" },
+                    React.createElement("h2", { className: "card-title" },
+                        "Order #",
+                        idx),
+                    React.createElement("div", null, orderedItem.map(function (item, idx) { return React.createElement("div", { key: idx, className: 'italic' },
+                        item.name,
+                        " $",
+                        item.quan * item.price,
+                        " @ ",
+                        item.quan,
+                        " "); })),
+                    React.createElement("div", { className: 'justify-end space-x-2 card-actions' },
+                        React.createElement("button", { onClick: function () { return handleViewDetail(idx); }, className: "btn glass rounded-full" }, "Click for detailed info")))))));
+};
+exports.TrackingCard = TrackingCard;

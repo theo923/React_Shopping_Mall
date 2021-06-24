@@ -1,25 +1,28 @@
-import React , { Suspense, lazy } from 'react'
-
-const Contact = lazy(() => import('./Subpages/Contact'))  
-const ShoppingCart = lazy(() => import('./Subpages/ShoppingCart/ShoppingCart'))
-const News = lazy(() => import('./Subpages/News/News'))
-const Tracking = lazy(() => import('./Subpages/Tracking/Tracking'))
-
-export const Content = (props) => {
-    props = props.props
-    const SwitchPages = page => {
-        switch(page) {
-            case 'contact':         return  <Suspense fallback={<div>Loading...</div>}><Contact /></Suspense>
-            case 'shoppingCart':    return  <Suspense fallback={<div>Loading...</div>}><ShoppingCart props={props}/></Suspense>
-            case 'news':            return  <Suspense fallback={<div>Loading...</div>}><News handleSCChange={props.handleSCChange} /></Suspense>
-            case 'tracking':        return  <Suspense fallback={<div>Loading...</div>}><Tracking username={props.username} /></Suspense>
-            default: console.log('SwitchPages: Something went wrong!!!')
+"use strict";
+exports.__esModule = true;
+exports.Content = void 0;
+var React = require("react");
+var Contact = React.lazy(function () { return Promise.resolve().then(function () { return require('./Subpages/Contact'); }); });
+var ShoppingCart = React.lazy(function () { return Promise.resolve().then(function () { return require('./Subpages/ShoppingCart/ShoppingCart'); }); });
+var News = React.lazy(function () { return Promise.resolve().then(function () { return require('./Subpages/News/News'); }); });
+var Tracking = React.lazy(function () { return Promise.resolve().then(function () { return require('./Subpages/Tracking/Tracking'); }); });
+var Content = function (props) {
+    props = props.props;
+    var SwitchPages = function (page) {
+        switch (page) {
+            case 'contact': return React.createElement(React.Suspense, { fallback: React.createElement("div", null, "Loading...") },
+                React.createElement(Contact, null));
+            case 'shoppingCart': return React.createElement(React.Suspense, { fallback: React.createElement("div", null, "Loading...") },
+                React.createElement(ShoppingCart, { props: props }));
+            case 'news': return React.createElement(React.Suspense, { fallback: React.createElement("div", null, "Loading...") },
+                React.createElement(News, { handleSCChange: props.handleSCChange }));
+            case 'tracking': return React.createElement(React.Suspense, { fallback: React.createElement("div", null, "Loading...") },
+                React.createElement(Tracking, { username: props.username }));
+            default:
+                console.log('SwitchPages: Something went wrong!!!');
+                return React.createElement("div", { className: 'text-7xl' }, "Service Stop Working...");
         }
-    }
-
-    return(
-            <div className='m-12'>
-                {SwitchPages(props.page)}
-            </div>
-    )
-}
+    };
+    return (React.createElement("div", { className: 'm-12' }, SwitchPages(props.page)));
+};
+exports.Content = Content;
