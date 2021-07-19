@@ -55,6 +55,7 @@ class Login extends React.Component <IProps, IState> {
     }
 
     render(): JSX.Element {
+		console.log(process.env.REACT_APP_IP);
         return(
             <div className="hero min-h-screen bg-base-200 text-white">
                 <div className="flex-col justify-center hero-content">

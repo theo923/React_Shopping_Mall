@@ -101,6 +101,7 @@ var Login = /** @class */ (function (_super) {
         });
     };
     Login.prototype.render = function () {
+        console.log(process.env.REACT_APP_IP);
         return (React.createElement("div", { className: "hero min-h-screen bg-base-200 text-white" },
             React.createElement("div", { className: "flex-col justify-center hero-content" },
                 React.createElement("div", { className: "text-center" },

@@ -61,6 +61,9 @@ var Tracking = /** @class */ (function (_super) {
         _this.handleViewDetail = function (ordernumber) {
             _this.setState({ orderNum: ordernumber, orderView: true });
         };
+        _this.handleBack = function () {
+            _this.setState({ orderView: false });
+        };
         _this.state = {
             orderView: false,
             orderNum: 0,
@@ -106,7 +109,7 @@ var Tracking = /** @class */ (function (_super) {
                     this.props.username),
                 this.state.orderList.map(function (order, idx, arr) { return React.createElement(TrackingCard_1.TrackingCard, { key: idx, idx: arr.length - idx - 1, order: order, handleViewDetail: _this.handleViewDetail }); }))
             :
-                React.createElement("div", null, this.state.orderList.map(function (order, idx, arr) { return (arr.length - idx - 1 === _this.state.orderNum) ? React.createElement(DetailedTracking_1.DetailedTracking, { key: idx, idx: arr.length - idx - 1, order: order }) : null; }))));
+                React.createElement("div", null, this.state.orderList.map(function (order, idx, arr) { return (arr.length - idx - 1 === _this.state.orderNum) ? React.createElement(DetailedTracking_1.DetailedTracking, { key: idx, idx: arr.length - idx - 1, handleBack: _this.handleBack, order: order }) : null; }))));
     };
     return Tracking;
 }(React.Component));
